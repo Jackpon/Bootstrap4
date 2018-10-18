@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <title>我的Bootstrap网页</title>
+    <style>
+    .fa-heart{
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: transform 0.5s;
+    }
+    .like{
+      color: red;
+    }
+    .fa-heart:active{
+      color: red;
+      transform: scale(2,2);
+      transition: transform 0.1s;
+    }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="image/sky1.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">星空1</h5>
+              <p class="card-text">拍摄于……</p>
+              <i class="fas fa-heart float-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="image/sky2.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">星空2</h5>
+              <p class="card-text">拍摄于……</p>
+              <i class="fas fa-heart float-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="image/sky3.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">星空3</h5>
+              <p class="card-text">拍摄于……</p>
+              <i class="fas fa-heart float-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="image/sky4.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">星空4</h5>
+              <p class="card-text">拍摄于……</p>
+              <i class="fas fa-heart float-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="image/sky5.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">星空5</h5>
+              <p class="card-text">拍摄于……</p>
+              <i class="fas fa-heart float-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.fa-heart').on('click',function(){
+          $(this).toggleClass('like')
+        })
+      })
+    </script>
+
+  </body>
+</html>

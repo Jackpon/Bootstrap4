@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>我的Bootstrap网页</title>
+  </head>
+  <body>
+
+    <div class="modal" id="mymodal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">删除记录</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>您真的需要删除<span class="course"></span>吗？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-danger delete">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">课程</th>
+                <th class="text-center">学分</th>
+                <th class="text-center">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="align-middle pl-5">数据结构与算法</td>
+                <td class="align-middle pl-5">4</td>
+                <td class="align-middle pl-5">
+                  <button class="btn btn-secondary">编辑</button>
+                  <button class="btn btn-danger" 
+                          data-toggle="modal" data-target="#mymodal"
+                          data-course="数据结构与算法" data-id="001"
+                          >
+                    删除
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle pl-5">Bootstrap前端设计与开发</td>
+                <td class="align-middle pl-5">2</td>
+                <td class="align-middle pl-5">
+                  <button class="btn btn-secondary">编辑</button>
+                  <button class="btn btn-danger" 
+                          data-toggle="modal" data-target="#mymodal"
+                          data-course="Bootstrap前端设计与开发" data-id="002"
+                          >
+                    删除
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle pl-5">社交网络技术基础与开发</td>
+                <td class="align-middle pl-5">2</td>
+                <td class="align-middle pl-5">
+                  <button class="btn btn-secondary">编辑</button>
+                  <button class="btn btn-danger" 
+                          data-toggle="modal" data-target="#mymodal"
+                          data-course="社交网络技术基础与开发" data-id="003"
+                          >
+                    删除
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        $('#mymodal').on('show.bs.modal',function(e){
+          let button = $(e.relatedTarget)
+          let course = button.data('course')
+          let id = button.data('id')
+
+          let modal = $(this)
+          modal.find('.course').text(course)
+          modal.find('.delete').data('id', id)
+        })
+
+        $('#mymodal .delete').on('click',function(){
+          let id = $(this).data('id')
+          console.log('发AJAX请求，删除id', id)
+          $('#mymodal').modal('hide')
+        })
+
+      })
+    
+    </script>
+  </body>
+</html>
